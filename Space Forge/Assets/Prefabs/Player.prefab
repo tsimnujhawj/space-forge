@@ -93,8 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveXSpeed: 15
-  moveYSpeed: 25
+  moveYSpeed: 15
   boundaryPadding: 0.5
   laserPrefab: {fileID: 6973514157927658827, guid: d27751fbe5f2b1642a0b88db6e1c5457,
     type: 3}
   projectileSpeed: 20
+  projectileFiringPeriod: 0.05

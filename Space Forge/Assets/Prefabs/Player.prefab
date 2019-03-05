@@ -97,6 +97,9 @@ MonoBehaviour:
   moveYSpeed: 15
   boundaryPadding: 0.5
   health: 500
+  deathVFX: {fileID: 6618422358310538984, guid: 8ad983132ff0921438a1c0167821a6e7,
+    type: 3}
+  durationOfExplosion: 0
   laserPrefab: {fileID: 6973514157927658827, guid: d27751fbe5f2b1642a0b88db6e1c5457,
     type: 3}
   projectileSpeed: 20

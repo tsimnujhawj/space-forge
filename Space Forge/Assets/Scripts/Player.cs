@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     [Range(-5, 25)] [SerializeField] float boundaryPadding = 0.5f;
     [SerializeField] float health = 500;
 
+    [Header("Player Settings")]
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float durationOfExplosion = 1f;
+
     [Header("Player Projectiles")]
     [SerializeField] GameObject laserPrefab;
     [Range(-30, 30)] [SerializeField] float projectileSpeed = 10f;
@@ -50,8 +54,18 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        GameObject explosion = Instantiate(
+                deathVFX,
+                transform.position,
+                Quaternion.identity
+            ) as GameObject;
+        Destroy(gameObject, durationOfExplosion);
     }
 
     private void Fire()

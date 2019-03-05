@@ -13,7 +13,6 @@ public class DamageDealer : MonoBehaviour
 
     public void Hit()
     {
-        gameObject.SetActive(false);
         Destroy(gameObject);
     }
 

@@ -7,9 +7,13 @@ public class Player : MonoBehaviour
 {
 
     // configurations
+    [Header("Player Movement")]
     [SerializeField] float moveXSpeed = 25f;
     [SerializeField] float moveYSpeed = 25f;
     [Range(-5, 25)] [SerializeField] float boundaryPadding = 0.5f;
+    [SerializeField] float health = 500;
+
+    [Header("Player Projectiles")]
     [SerializeField] GameObject laserPrefab;
     [Range(-30, 30)] [SerializeField] float projectileSpeed = 10f;
     [Range(-5, 5)] [SerializeField] float projectileFiringPeriod = 0.1f;
@@ -31,6 +35,23 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Fire()

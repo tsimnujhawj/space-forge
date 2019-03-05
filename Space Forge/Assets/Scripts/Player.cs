@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         // TODO: death SFX
-        // PlayDeathAudioClip();
+        PlayDeathAudioClip();
         GameObject explosion = Instantiate(
                 deathVFX,
                 transform.position,

@@ -13,9 +13,12 @@ public class Player : MonoBehaviour
     [Range(-5, 25)] [SerializeField] float boundaryPadding = 0.5f;
     [SerializeField] float health = 500;
 
-    [Header("Player Settings")]
+    [Header("Player VFX/SFX")]
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationOfExplosion = 1f;
+    [SerializeField] float laserSFXVolume;
+    [SerializeField] float deathSFXVolume;
+    [SerializeField] AudioClip deathSFX;
 
     [Header("Player Projectiles")]
     [SerializeField] GameObject laserPrefab;
@@ -60,6 +63,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        // TODO: death SFX
+        // PlayDeathAudioClip();
         GameObject explosion = Instantiate(
                 deathVFX,
                 transform.position,
@@ -84,6 +89,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
+            // TODO: player shooting SFX
             GameObject laser = Instantiate(
                 laserPrefab,
                 transform.position,
@@ -114,6 +120,11 @@ public class Player : MonoBehaviour
         // vertical mins and maxes
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + boundaryPadding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - boundaryPadding;
+    }
+
+    private void PlayDeathAudioClip()
+    {
+        AudioSource.PlayClipAtPoint(deathSFX, transform.position);
     }
 
 }

@@ -96,13 +96,17 @@ MonoBehaviour:
   moveXSpeed: 15
   moveYSpeed: 15
   boundaryPadding: 0.5
-  health: 200
-  deathVFX: {fileID: 6618422358310538984, guid: 8ad983132ff0921438a1c0167821a6e7,
+  health: 500
+  deathVFX: {fileID: 6618422358310538984, guid: 51b8236d32560d34e869166c4434e1d9,
     type: 3}
   durationOfExplosion: 0
-  laserSFXVolume: 0
-  deathSFXVolume: 0
-  deathSFX: {fileID: 8300000, guid: 47da896fdeac21b4eb5a90442708479d, type: 3}
+  laserSFXVolume: 0.02
+  deathSFXVolume: 0.8
+  damageSFXVolume: 0.05
+  deathSFX: {fileID: 8300000, guid: c4f808aed7f901c4b8d7c488e0f5175c, type: 3}
+  laserSFX: {fileID: 8300000, guid: dbfe3d2192eae2e47806e1aafbe5855d, type: 3}
+  laserAutoSFX: {fileID: 8300000, guid: efef7addbd4140e47922e4facdcb6218, type: 3}
+  damageSFX: {fileID: 8300000, guid: 2dcb1d5069ec97543a6c2c679f7fe934, type: 3}
   laserPrefab: {fileID: 6973514157927658827, guid: d27751fbe5f2b1642a0b88db6e1c5457,
     type: 3}
   projectileSpeed: 20

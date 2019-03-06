@@ -116,10 +116,11 @@ MonoBehaviour:
   enemyProjectileSpeed: 10
   deathVFX: {fileID: 6618422358310538984, guid: 8ad983132ff0921438a1c0167821a6e7,
     type: 3}
-  durationOfExplosion: 1
-  laserSFXVolume: 0
-  deathSFXVolume: 0
+  durationOfExplosion: 0
+  laserSFXVolume: 0.02
+  deathSFXVolume: 0.1
   deathSFX: {fileID: 8300000, guid: 6158c3fb153559045b38267a6fb1bab6, type: 3}
+  laserSFX: {fileID: 8300000, guid: 7f98c3bc14bedca46952e1fb130d2562, type: 3}
 --- !u!58 &1028301619390591464
 CircleCollider2D:
   m_ObjectHideFlags: 0

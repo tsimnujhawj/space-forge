@@ -665,6 +665,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2694588303914905701, guid: 2390e38aa090e4f41a5e579048bd453c,
+        type: 3}
+      propertyPath: backgroundScrollSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2390e38aa090e4f41a5e579048bd453c, type: 3}
 --- !u!1001 &5419867507214326860
@@ -752,6 +757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913707323412102309, guid: c37845c5190818847b07390ff49b0bf5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5913707323412102307, guid: c37845c5190818847b07390ff49b0bf5,
         type: 3}

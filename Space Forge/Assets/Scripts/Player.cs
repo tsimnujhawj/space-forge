@@ -15,10 +15,14 @@ public class Player : MonoBehaviour
 
     [Header("Player VFX/SFX")]
     [SerializeField] GameObject deathVFX;
-    [SerializeField] float durationOfExplosion = 1f;
-    [SerializeField] float laserSFXVolume;
-    [SerializeField] float deathSFXVolume;
+    [SerializeField] float durationOfExplosion = 0f;
+    [Range(0, 1)] [SerializeField] float laserSFXVolume = 0.03f;
+    [Range(0, 1)] [SerializeField] float deathSFXVolume = 0.8f;
+    [Range(0, 1)] [SerializeField] float damageSFXVolume = 0.05f;
     [SerializeField] AudioClip deathSFX;
+    [SerializeField] AudioClip laserSFX;
+    [SerializeField] AudioClip laserAutoSFX;
+    [SerializeField] AudioClip damageSFX;
 
     [Header("Player Projectiles")]
     [SerializeField] GameObject laserPrefab;
@@ -53,6 +57,7 @@ public class Player : MonoBehaviour
 
     private void ProcessHit(DamageDealer damageDealer)
     {
+        PlayDamageAudioClip();
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         if (health <= 0)
@@ -77,6 +82,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            PlayLaserAudioClip();
             firingCoroutine = StartCoroutine(FireContinuously());
         }
         if (Input.GetButtonUp("Fire1"))
@@ -90,6 +96,7 @@ public class Player : MonoBehaviour
         while (true)
         {
             // TODO: player shooting SFX
+            PlayAutoLaserAudioClip();
             GameObject laser = Instantiate(
                 laserPrefab,
                 transform.position,
@@ -124,7 +131,22 @@ public class Player : MonoBehaviour
 
     private void PlayDeathAudioClip()
     {
-        AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+    }
+
+    private void PlayLaserAudioClip()
+    {
+        AudioSource.PlayClipAtPoint(laserSFX, Camera.main.transform.position, laserSFXVolume);
+    }
+
+    private void PlayAutoLaserAudioClip()
+    {
+        AudioSource.PlayClipAtPoint(laserAutoSFX, Camera.main.transform.position, laserSFXVolume);
+    }
+
+    private void PlayDamageAudioClip()
+    {
+        AudioSource.PlayClipAtPoint(damageSFX, Camera.main.transform.position, damageSFXVolume);
     }
 
 }

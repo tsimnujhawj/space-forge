@@ -15,10 +15,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Enemy VFX/SFX")]
     [SerializeField] GameObject deathVFX;
-    [SerializeField] float durationOfExplosion = 1f;
-    [SerializeField] float laserSFXVolume;
-    [SerializeField] float deathSFXVolume;
+    [SerializeField] float durationOfExplosion = 0f;
+    [Range(0, 1)] [SerializeField] float laserSFXVolume = 0.02f;
+    [Range(0, 1)] [SerializeField] float deathSFXVolume = 0.1f;
     [SerializeField] AudioClip deathSFX;
+    [SerializeField] AudioClip laserSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour
     private void Fire()
     {
         // TODO: enemy shooting SFX
+        PlayLaserAudioClip();
         GameObject enemyLaser = Instantiate(
             enemyLaserPrefab,
             transform.position,
@@ -83,7 +85,12 @@ public class Enemy : MonoBehaviour
 
     private void PlayDeathAudioClip()
     {
-        AudioSource.PlayClipAtPoint(deathSFX, transform.position);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+    }
+
+    private void PlayLaserAudioClip()
+    {
+        AudioSource.PlayClipAtPoint(laserSFX, Camera.main.transform.position, laserSFXVolume);
     }
 
 }

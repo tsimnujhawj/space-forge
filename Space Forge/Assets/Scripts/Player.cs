@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip laserSFX;
     [SerializeField] AudioClip laserAutoSFX;
     [SerializeField] AudioClip damageSFX;
+    float timeBeforeGameOverLoads = 0.03f;
 
     [Header("Player Projectiles")]
     [SerializeField] GameObject laserPrefab;
@@ -30,6 +31,8 @@ public class Player : MonoBehaviour
     [Range(-5, 5)] [SerializeField] float projectileFiringPeriod = 0.1f;
 
     Coroutine firingCoroutine;
+    Coroutine goToGameOver;
+    Level level;
 
     // parameters
     float xMin;
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        level = FindObjectOfType<Level>();
         SetUpMoveBoundaries();
     }
 
@@ -76,6 +80,13 @@ public class Player : MonoBehaviour
                 Quaternion.identity
             ) as GameObject;
         Destroy(gameObject, durationOfExplosion);
+        goToGameOver = StartCoroutine(LoadGO());
+    }
+
+    IEnumerator LoadGO()
+    {
+        yield return new WaitForSeconds(timeBeforeGameOverLoads);
+        level.LoadGameOver();
     }
 
     private void Fire()

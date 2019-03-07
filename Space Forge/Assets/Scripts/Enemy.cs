@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] GameObject enemyLaserPrefab;
     [SerializeField] float enemyProjectileSpeed = 10f;
+    [SerializeField] int scoreValue = 50;
 
     [Header("Enemy VFX/SFX")]
     [SerializeField] GameObject deathVFX;
@@ -73,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        // TODO: death SFX
+        FindObjectOfType<GameSession>().AddToScore(scoreValue); // TODO: refactor this code
         PlayDeathAudioClip();
         GameObject explosion = Instantiate(
                 deathVFX,

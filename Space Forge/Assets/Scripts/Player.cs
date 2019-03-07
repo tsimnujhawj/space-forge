@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -23,16 +24,14 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip laserSFX;
     [SerializeField] AudioClip laserAutoSFX;
     [SerializeField] AudioClip damageSFX;
-    float timeBeforeGameOverLoads = 0.03f;
 
     [Header("Player Projectiles")]
     [SerializeField] GameObject laserPrefab;
     [Range(-30, 30)] [SerializeField] float projectileSpeed = 10f;
-    [Range(-5, 5)] [SerializeField] float projectileFiringPeriod = 0.1f;
+    [Range(-5, 5)] [SerializeField] float projectileFiringPeriod = 0.2f;
 
     Coroutine firingCoroutine;
-    Coroutine goToGameOver;
-    Level level;
+    Level levelLoader;
 
     // parameters
     float xMin;
@@ -42,7 +41,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        level = FindObjectOfType<Level>();
+        levelLoader = FindObjectOfType<Level>();
         SetUpMoveBoundaries();
     }
 
@@ -73,20 +72,14 @@ public class Player : MonoBehaviour
     private void Die()
     {
         // TODO: death SFX
+        levelLoader.LoadGameOver();
+        Destroy(gameObject, durationOfExplosion);
         PlayDeathAudioClip();
         GameObject explosion = Instantiate(
                 deathVFX,
                 transform.position,
                 Quaternion.identity
             ) as GameObject;
-        Destroy(gameObject, durationOfExplosion);
-        goToGameOver = StartCoroutine(LoadGO());
-    }
-
-    IEnumerator LoadGO()
-    {
-        yield return new WaitForSeconds(timeBeforeGameOverLoads);
-        level.LoadGameOver();
     }
 
     private void Fire()

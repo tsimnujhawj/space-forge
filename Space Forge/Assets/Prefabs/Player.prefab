@@ -96,7 +96,7 @@ MonoBehaviour:
   moveXSpeed: 15
   moveYSpeed: 15
   boundaryPadding: 0.5
-  health: 50
+  health: 250
   deathVFX: {fileID: 6618422358310538984, guid: 51b8236d32560d34e869166c4434e1d9,
     type: 3}
   durationOfExplosion: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 6973514157927658827, guid: d27751fbe5f2b1642a0b88db6e1c5457,
     type: 3}
   projectileSpeed: 20
-  projectileFiringPeriod: 0.05
+  projectileFiringPeriod: 0.2
 --- !u!58 &2143455290410256146
 CircleCollider2D:
   m_ObjectHideFlags: 0

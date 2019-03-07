@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
+    float timeBeforeLoadingGameOver = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,12 @@ public class Level : MonoBehaviour
 
     public void LoadGameOver()
     {
+        StartCoroutine(WaitBeforeLoadingGameOver());
+    }
+
+    IEnumerator WaitBeforeLoadingGameOver()
+    {
+        yield return new WaitForSeconds(timeBeforeLoadingGameOver);
         SceneManager.LoadScene("Game Over");
     }
 

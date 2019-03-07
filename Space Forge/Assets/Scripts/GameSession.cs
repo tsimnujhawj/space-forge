@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
 
-    int score = 0;
+    [SerializeField] int score = 0;
 
     // Start is called before the first frame update
     private void Awake()

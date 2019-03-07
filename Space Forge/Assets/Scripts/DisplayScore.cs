@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DisplayScore : MonoBehaviour
 {
 
-    Text scoreText;
+    TextMeshProUGUI scoreText;
     GameSession gameSession;
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreText = FindObjectOfType<Text>();
+        scoreText = FindObjectOfType<TextMeshProUGUI>();
         gameSession = FindObjectOfType<GameSession>();
         
     }

@@ -22,13 +22,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip deathSFX;
     [SerializeField] AudioClip laserSFX;
 
-    // Start is called before the first frame update
+    GameSession gameSession;
+
     void Start()
     {
-        shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);   
+        shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        gameSession = FindObjectOfType<GameSession>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CountDownAndShoot();
@@ -46,7 +47,6 @@ public class Enemy : MonoBehaviour
 
     private void Fire()
     {
-        // TODO: enemy shooting SFX
         PlayLaserAudioClip();
         GameObject enemyLaser = Instantiate(
             enemyLaserPrefab,
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        FindObjectOfType<GameSession>().AddToScore(scoreValue); // TODO: refactor this code
+        gameSession.AddToScore(scoreValue);
         PlayDeathAudioClip();
         GameObject explosion = Instantiate(
                 deathVFX,

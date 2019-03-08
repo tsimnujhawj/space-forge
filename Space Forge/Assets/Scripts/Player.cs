@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveXSpeed = 25f;
     [SerializeField] float moveYSpeed = 25f;
     [Range(-5, 25)] [SerializeField] float boundaryPadding = 0.5f;
-    [SerializeField] float health = 500;
+    [SerializeField] float health = 250;
 
     [Header("Player VFX/SFX")]
     [SerializeField] GameObject deathVFX;
@@ -71,7 +71,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        // TODO: death SFX
         levelLoader.LoadGameOver();
         Destroy(gameObject, durationOfExplosion);
         PlayDeathAudioClip();
@@ -80,6 +79,16 @@ public class Player : MonoBehaviour
                 transform.position,
                 Quaternion.identity
             ) as GameObject;
+    }
+
+    public float GetHealth()
+    {
+        return health;
+    }
+
+    public float CalculateHealthPercentage() // TODO: get this to work lol...
+    {
+        return (100 / health) * 250;
     }
 
     private void Fire()
@@ -99,7 +108,6 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            // TODO: player shooting SFX
             PlayAutoLaserAudioClip();
             GameObject laser = Instantiate(
                 laserPrefab,

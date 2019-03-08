@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class DisplayScore : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class DisplayScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText = FindObjectOfType<TextMeshProUGUI>();
+        scoreText = GetComponent<TextMeshProUGUI>();
         gameSession = FindObjectOfType<GameSession>();
         
     }

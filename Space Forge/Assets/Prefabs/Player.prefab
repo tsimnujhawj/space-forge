@@ -96,7 +96,7 @@ MonoBehaviour:
   moveXSpeed: 15
   moveYSpeed: 15
   boundaryPadding: 0.5
-  health: 250
+  health: 500
   deathVFX: {fileID: 6618422358310538984, guid: 51b8236d32560d34e869166c4434e1d9,
     type: 3}
   durationOfExplosion: 0

@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     public float CalculateHealthPercentage() // TODO: get this to work lol...
     {
-        return (100 / health) * 250;
+        return (100 / health);
     }
 
     private void Fire()

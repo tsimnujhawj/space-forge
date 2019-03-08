@@ -1304,81 +1304,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2272ff5b59d6f54080ffdc58cc74470, type: 3}
---- !u!1001 &3879701882663709282
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7574958831461055978, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7574958831461055976, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4010570299558695504, guid: 983f879f8e0fb4948a993849d0f730a5,
-        type: 3}
-      propertyPath: enemyLaserPrefab
-      value: 
-      objectReference: {fileID: 5175681905118041473, guid: c53cc33e801ac594eb2c702b94885428,
-        type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 983f879f8e0fb4948a993849d0f730a5, type: 3}
 --- !u!1001 &5913707321579493271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1390,11 +1315,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 5913707323412102309, guid: c37845c5190818847b07390ff49b0bf5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5913707323412102307, guid: c37845c5190818847b07390ff49b0bf5,
         type: 3}
